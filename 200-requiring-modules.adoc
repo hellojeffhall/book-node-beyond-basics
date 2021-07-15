@@ -594,7 +594,7 @@ _~/learn-node $_ echo "euaohseu" > bad.js
 
 _~/learn-node $_ node bad.js
 ~/bad.js:1
-(*function (exports, require, module, **filename, **dirname) { euaohseu*
+(*function (exports, require, module, \__filename, __dirname) { euaohseu*
 ^
 
 ReferenceError: euaohseu is not defined
