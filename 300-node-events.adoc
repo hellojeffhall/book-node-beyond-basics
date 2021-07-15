@@ -106,6 +106,7 @@ Instead of passing in a callback function, we called a `.then` function on the 
 
 Making the host function support a promise interface is easier in modern JavaScript thanks to the new Promise object. Here's the `readFileAsArray` function modified to support a promise interface in addition to the callback interface it already supports:
 
+[source, js]
 ----
 const readFileAsArray = function(file, cb = () => {}) {
   return new Promise((resolve, reject) => {
@@ -136,6 +137,7 @@ Promises improve that a little bit, and function generators improve on that a li
 
 Here's how we can consume the `readFileAsArray` function with async/await:
 
+[source, js]
 ----
 async function countOdd () {
   try {
@@ -170,6 +172,7 @@ The concept is simple: emitter objects emit named events that cause previously r
 
 To work with the EventEmitter, we just create a class that extends EventEmitter.
 
+[source, js]
 ----
 class MyEmitter extends EventEmitter {
 
@@ -178,12 +181,14 @@ class MyEmitter extends EventEmitter {
 
 Emitter objects are what we instantiate from the EventEmitter-based classes:
 
+[source, js]
 ----
 const myEmitter = new MyEmitter();
 ----
 
 At any point in the lifecycle of those emitter objects, we can use the emit function to emit any named event we want.
 
+[source, js]
 ----
 myEmitter.emit('something-happened');
 ----
@@ -195,6 +200,7 @@ We can add listener functions using the `on` method, and those listener function
 
 Let's take a look at an example:
 
+[source, js]
 ----
 const EventEmitter = require('events');
 
@@ -276,6 +282,7 @@ One benefit of using events instead of regular callbacks is that we can react to
 
 Let's convert the synchronous sample example into something asynchronous and a little bit more useful.
 
+[source, js]
 ----
 const fs = require('fs');
 const EventEmitter = require('events');
@@ -318,6 +325,7 @@ Done with execute
 
 Note how we needed to combine a callback with an event emitter to accomplish that. If the `asynFunc` supported promises as well, we could use the async/await feature to do the same:
 
+[source, js]
 ----
 class WithTime extends EventEmitter {
   async execute(asyncFunc, ...args) {
@@ -343,12 +351,14 @@ In the previous example, there were two events that were emitted with extra argu
 
 The error event is emitted with an error object.
 
+[source, js]
 ----
 this.emit('error', err);
 ----
 
 The data event is emitted with a data object.
 
+[source, js]
 ----
 this.emit('data', data);
 ----
