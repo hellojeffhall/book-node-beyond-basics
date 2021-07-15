@@ -581,9 +581,9 @@ The answer is simple. Before compiling a module, Node wraps the module code in a
 
 Node does not execute any code you write in a file directly. It executes this wrapper function which will have your code in its body. This is what keeps the top-level variables that are defined in any module scoped to that module.
 
-This wrapper function has 5 arguments: `exports`, `require`, `module`, `__filename`, and `__dirname`. This is what makes them appear to look global when in fact they are specific to each module.
+This wrapper function has 5 arguments: `exports`, `require`, `module`, `\__filename`, and `__dirname`. This is what makes them appear to look global when in fact they are specific to each module.
 
-All of these arguments get their values when Node executes the wrapper function. `exports` is defined as a reference to `module.exports` prior to that. `require` and `module` are both specific to the function to be executed, and `__filename`/`__dirname` variables will contain the wrapped module's absolute filename and directory path.
+All of these arguments get their values when Node executes the wrapper function. `exports` is defined as a reference to `module.exports` prior to that. `require` and `module` are both specific to the function to be executed, and `\__filename`/`__dirname` variables will contain the wrapped module's absolute filename and directory path.
 
 You can see this wrapping in action if you run a script with a problem on its first line:
 
